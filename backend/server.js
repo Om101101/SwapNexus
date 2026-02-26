@@ -9,9 +9,14 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Test Route
+// Root Route
 app.get("/", (req, res) => {
   res.send("SkillSyncAI Backend Running 🚀");
+});
+
+// ✅ NEW MESSAGE ROUTE (Add This)
+app.get("/api/message", (req, res) => {
+  res.json({ message: "Hello from SwapNexus Backend 🚀" });
 });
 
 // Database Connection
@@ -31,7 +36,7 @@ mongoose.connect(process.env.MONGO_URI)
 =================================
 `);
   console.error(err);
-  process.exit(1); // Stop server if DB fails
+  process.exit(1); 
 });
 
 // Start Server
